@@ -1,0 +1,268 @@
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark gradient from dark blue to charcoal */
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ecf0f1; /* Light text color for dark background */
+  padding: 20px;
+  background-attachment: fixed; /* Fixes the background during scrolling */
+}
+
+/* Container (Form) */
+.form-container {
+  background: rgba(255, 255, 255, 0.9); /* Light white with 90% opacity */
+  width: 720px;
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1); /* Soft shadow for the form */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  transition: transform 0.3s ease;
+}
+
+h2{
+  color: #000;
+}
+
+.form-container:hover {
+  transform: translateY(-8px);
+}
+
+/* Profile Picture - centered on top */
+.form-container img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #3498db; /* Light blue border for contrast */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 25px;
+}
+
+/* Details wrapper - two columns below image */
+.details-wrapper {
+  display: flex;
+  width: 100%;
+  gap: 40px;
+  justify-content: center;
+}
+
+/* Left and right columns for details */
+.details-left,
+.details-right {
+  flex: 1;
+}
+
+/* Individual detail styling */
+.detail-item {
+  font-weight: 500;
+  color: #7f8c8d; /* Light gray color */
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.detail-item strong {
+  color: #2c3e50; /* Darker color for emphasis */
+  width: 130px;
+  display: inline-block;
+}
+
+/* Form styles */
+form {
+  width: 100%;
+  margin-top: 30px;
+}
+
+
+/* Two column inputs */
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="date"],
+form select {
+  width: calc(50% - 15px); /* Adjust width to match other fields */
+  padding: 12px 15px;
+  margin: 10px 15px 20px 0;
+  border-radius: 8px;
+  border: 1.8px solid #bdc3c7; /* Light gray border */
+  font-size: 16px;
+  transition: border-color 0.25s ease;
+  font-weight: 500;
+  color: #34495e; /* Dark text color for readability */
+  outline: none;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  background-color: #fff; /* White background for form inputs */
+  float: left;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus,
+form input[type="date"]:focus,
+form select:focus {
+  border-color: #3498db; /* Blue focus border */
+  background-color: #fff; /* White background when focused */
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.4); /* Blue focus shadow */
+}
+
+/* File input styling to make it the same size as text inputs */
+form input[type="file"] {
+  width: calc(50% - 15px); /* Same width as other inputs */
+  padding: 12px 15px; /* Match padding to the other fields */
+  margin: 10px 15px 20px 0;
+  border-radius: 8px;
+  border: 1.8px solid #bdc3c7; /* Same border styling */
+  font-weight: 500;
+  color: transparent; /* Hide text color */
+  background-color: #fff; /* White background for file input */
+  cursor: pointer;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+  outline: none;
+  transition: border-color 0.25s ease;
+  text-align: center; /* Center the "Choose File" text */
+}
+
+form input[type="file"]:hover {
+  border-color: #3498db; /* Blue hover border */
+  background-color: #f0f0f0; /* Slightly darker background on hover */
+}
+
+/* Hide the file name when file is chosen */
+form input[type="file"]::-webkit-file-upload-button {
+  background: none;
+  color: #3498db; /* Blue text color */
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  text-align: center;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+form input[type="file"]:focus::-webkit-file-upload-button {
+  border-color: #3498db;
+  background-color: #fff;
+}
+
+/* Buttons */
+form button {
+  width: 48%;
+  padding: 14px 0;
+  margin: 12px 1% 0 1%; /* Adjusted margin to move button lower */
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #3498db, #2980b9); /* Blue gradient for button */
+  color: white;
+  font-weight: 700;
+  font-size: 17px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  float: left;
+}
+
+form button:hover {
+  background: linear-gradient(90deg, #2980b9, #1f6392); /* Darker blue on hover */
+  box-shadow: 0 8px 20px rgba(31, 99, 146, 0.6);
+}
+
+/* Clear floats */
+form::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Messages */
+.msg {
+  background-color: #f8d7da; /* Light red background for error messages */
+  color: #c0392b; /* Dark red text */
+  padding: 12px 18px;
+  margin-bottom: 25px;
+  border-radius: 12px;
+  border: 1.5px solid #c0392b;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Links */
+p{
+  color: #000;
+}
+a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for "Already have an account?" and "Don't have an account?" */
+.account-link {
+  color: #000;  /* Set the color to black */
+}
+
+/* Responsive: Stack layout on smaller screens */
+@media (max-width: 800px) {
+  .form-container {
+    width: 100%;
+    padding: 30px 25px;
+  }
+
+  .form-container img {
+    margin: 0 auto 30px;
+    width: 160px;
+    height: 160px;
+    border-width: 5px;
+  }
+
+  .details-wrapper {
+    flex-direction: column;
+  }
+
+  .details-left,
+  .details-right {
+    width: 100%;
+  }
+
+  .detail-item {
+    font-size: 15px;
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form input[type="date"],
+  form select,
+  form input[type="file"] {
+    width: 100%; /* Full width for all inputs on mobile */
+    margin: 12px 0;
+    float: none;
+  }
+
+  form button {
+    width: 100%;
+    margin: 12px 0;
+    float: none;
+  }
+}
